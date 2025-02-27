@@ -1,0 +1,448 @@
+:root{
+  background-color: #000000e2;
+}
+
+/* Create a main container layout */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  gap: 10px;
+  padding: 10px;
+}
+
+/* Updated Sidebar styles */
+.SideBar {
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  height: calc(100vh - 100px); /* Adjust for navbar and padding */
+  width: 27vw;
+  background-color: rgba(6, 6, 6, 0.848);
+  border-radius: 10px;
+  color: rgb(0, 179, 255);
+  transition: all 0.3s ease;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.sidebar-content {
+  width: 100%;
+  padding: 15px 10px; /* Reduce padding on the sides */
+  justify-content: center;
+}
+
+.SideBar.collapsed {
+  width: 10vw;
+}
+
+/* Add scrollbar styling */
+.SideBar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.SideBar::-webkit-scrollbar-track {
+  background: rgba(6, 6, 6, 0.5);
+  border-radius: 4px;
+}
+
+.SideBar::-webkit-scrollbar-thumb {
+  background: rgb(0, 179, 255, 0.5);
+  border-radius: 4px;
+}
+
+.collapsed .heading h1 {
+  justify-content: center;
+  padding: 0;
+}
+
+.collapsed .img {
+  margin: 5px;
+  transform: rotate(180deg);
+}
+
+.heading{
+  text-align: center;
+  padding: 0 5px; /* Reduce padding in heading */
+  width: 100%;    /* Ensure heading takes full width */
+}
+
+h1 {
+  margin: 10px;
+  padding: 0;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.btn-with-img{
+  background-color: rgba(6, 6, 6, 0.848);
+  color: aliceblue;
+  padding: 10px 5px; /* Reduce padding on sides */
+  border: none; /* Remove border */
+  border-radius: 8px;
+  width: 100%;
+  font-weight: bold;
+  margin: 5px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: flex-start; /* Align button content to the left */
+}
+
+.btn-with-img:hover{
+  background-color: rgba(138, 70, 2, 0.187);
+  cursor: pointer;
+}
+
+hr {
+  width: 100%;
+  margin: 15px 0;
+  border: none;
+  height: 1px;
+  background-color: #e8e8e8;
+  opacity: 0.2;
+  transition: all 0.3s ease;
+}
+
+.collapsed hr {
+  width: 80%;
+  margin: 15px auto; /* Centers the hr */
+  margin-inline: auto; /* Additional centering for better cross-browser support */
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers children in collapsed state */
+  width: 100%;
+}
+
+.button-container hr {
+  width: 100%;
+}
+
+.collapsed .button-container hr {
+  width: 80%;
+}
+
+.btn-with-img img {
+  width: 24px;
+  height: 24px;
+  object-fit: cover;
+}
+
+.btn-with-img span {
+  flex: 1;
+}
+
+.img{
+  width: 24px;
+  height: 24px;
+  object-fit: cover;
+  margin-left: auto; /* Pushes image to the right */
+  text-align: end;
+  order:2;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.collapsed .img {
+  transform: rotate(180deg);
+}
+
+/* Update the navbar styles */
+.NavBar{
+  height: 60px; 
+  width: calc(100% - 20px); 
+  background-color: rgba(6, 6, 6, 0.848);
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 10px;
+  padding: 15px 20px;  /* Increase right padding to accommodate the button */
+  border-radius: 10px;  
+  display: flex;  
+  align-items: center;  
+  justify-content: flex-start; /* Change from space-between to flex-start */
+  transition: all 0.3s ease; 
+  position: relative; /* Add this to help with absolute positioning */
+}
+
+.NavBar.collapsed{
+  width: calc(95vw - 20px);
+  margin: 10px 10px 10px 10px; 
+}
+.btn-with-img1{
+  background-color: rgba(6, 6, 6, 0.848);
+  color: aliceblue;
+  border-radius: 20px;
+  border: 1.5px solid rgb(255, 162, 0); /* Modified border properties */
+  padding: 10px 10px;
+  font-weight: bold;
+  margin: 15px 100px; /* Changed margin to only top and bottom */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.btn-with-img1:hover{
+  background-color: rgba(138, 70, 2, 0.187);
+  cursor: pointer;
+}
+
+.btn-with-img2{
+  background-color: rgba(6, 6, 6, 0.848);
+  color: aliceblue;
+  border-radius: 50%;  /* Make it perfectly circular */
+  border: 1.5px solid rgb(255, 162, 0);
+  padding: 8px;  /* Reduce padding to make it more compact */
+  width: 40px;   /* Set fixed width */
+  height: 40px;  /* Set fixed height */
+  font-weight: bold;
+  margin: 0;     /* Remove margin */
+  display: flex;
+  align-items: center;
+  justify-content: center;  /* Center the content */
+  margin-right: 10px;
+  margin-left: auto;  /* Push to the end of navbar */
+  position: absolute; /* Position absolutely */
+  right: 20px; /* Adjust this value */
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100; /* Ensure button stays above other elements */
+}
+
+.btn-with-img2 img {
+  width: 20px;    /* Adjust icon size */
+  height: 20px;
+  object-fit: cover;
+}
+
+/* Remove any text inside the button in your HTML */
+.btn-with-img2 span {
+  display: none;
+}
+.btn-with-img2:hover{
+  background-color: rgba(138, 70, 2, 0.187);
+  cursor: pointer;
+}
+
+/* Create a content wrapper to hold sidebar and main content */
+.content-wrapper {
+  display: flex;
+  flex: 1;
+  gap: 10px;
+  min-height: 0; /* Important for proper scrolling */
+  gap: 20px;
+  padding: 0 10px;
+  height: calc(100vh - 80px);
+}
+
+.Content{
+  display: flex;
+  flex: 1;
+  margin:10px;
+  height: calc(100vh - 60px);
+  padding: 20px;
+  background-color: rgba(6, 6, 6, 0.848);
+  border-radius: 10px;
+  overflow-y: auto; /* Enable scrolling if content is too long */
+}
+
+/* Add this class to handle content when sidebar is collapsed */
+.Content.collapsed {
+  margin-left: calc(5vw + 20px); /* Adjust margin when sidebar is collapsed */
+  width: calc(95vw - 40px);
+}
+
+/* Remove the old .content styles and update with these new ones */
+.content {
+    flex: 1;
+    background-color: rgba(6, 6, 6, 0.848);
+    border-radius: 10px;
+    padding: 20px;
+    color: aliceblue;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: all 0.3s ease;
+    overflow-y: auto;
+    height: calc(100vh - 100px);
+}
+
+/* Content scrollbar styling */
+.content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.content::-webkit-scrollbar-track {
+  background: rgba(6, 6, 6, 0.5);
+  border-radius: 4px;
+}
+
+.content::-webkit-scrollbar-thumb {
+  background: rgb(0, 179, 255, 0.5);
+  border-radius: 4px;
+}
+
+.content.collapsed {
+    margin-left: 0; /* Remove margin since we're using gap */
+}
+
+.btn-with-img {
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.collapsed .btn-with-img {
+  width: auto;
+  padding: 10px;
+  justify-content: center; /* Center the image */
+}
+
+.collapsed .btn-with-img img {
+  margin: 0 auto; /* Center the image within the button */
+}
+
+.collapsed .btn-with-img span {
+  display: none;
+}
+
+/* Update button container for collapsed state */
+.collapsed .button-container {
+  align-items: center;
+}
+
+.collapsed .button-container .btn-with-img {
+  display: flex;
+  justify-content: center;
+  width: 100%; /* Allow the button to take full width */
+}
+
+/* Updated heading styles */
+.heading h1, .heading h2 {
+  margin: 15px 5px; /* Reduce margin on sides */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align to the left */
+  gap: 10px;
+}
+
+.collapsed .heading h1, .collapsed .heading h2 {
+  justify-content: center;
+}
+
+.collapsed .heading span {
+  display: none;
+}
+
+/* Add these new styles */
+.menu-container {
+  position: relative;
+}
+
+/* Add hover functionality */
+.menu-container:hover .dropdown-menu,
+.dropdown-menu.show {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 5px);
+  right: 20px;
+  background-color: rgba(6, 6, 6, 0.95);
+  border-radius: 8px;
+  padding: 8px;
+  min-width: 200px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  /* Add transition effects */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.2s ease;
+}
+
+.dropdown-menu button {
+  width: 100%;
+  padding: 10px;
+  text-align: left;
+  background: none;
+  border: none;
+  color: aliceblue;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.dropdown-menu button:hover {
+  background-color: rgba(138, 70, 2, 0.187);
+}
+/*ai generated pls learn */
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.carousel-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #000000;
+}
+
+.profile-container {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    padding-right: 2rem;
+}
+
+.profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 1rem;
+    cursor: pointer;
+}
