@@ -157,7 +157,7 @@ hr {
 /* Update the navbar styles */
 .NavBar{
   height: 60px; 
-  width: calc(100% - 20px); 
+  width: calc(100% - 60px); 
   background-color: rgba(6, 6, 6, 0.848);
   color: white;
   font-family: Arial, Helvetica, sans-serif;
