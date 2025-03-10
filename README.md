@@ -14,6 +14,7 @@ A collection of web pages showcasing different designs, functionalities, and exp
 - **HTML**: For structuring content.
 - **CSS**: For styling and layout.
 - **JavaScript**: For dynamic behaviour and interactivity.
+- **React**: For a dynamic and modular frontend
 
 ## 📊 Project Status
 
