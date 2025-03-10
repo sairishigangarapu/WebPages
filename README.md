@@ -2,42 +2,12 @@
 
 A collection of web pages showcasing different designs, functionalities, and experiments using HTML, CSS, and JavaScript.
 
-## 📁 Repository Structure
-
-```
-WebPages/
-├── Page1/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-├── Page2/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-└── README.md
-```
 
 ## 📌 Features
 
 - Diverse collection of web pages with unique designs.
 - Utilizes HTML, CSS, and JavaScript for structure, styling, and interactivity.
 - Modular structure for easy navigation and scalability.
-
-## 🚀 Getting Started
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/sairishigangarapu/WebPages.git
-   ```
-
-2. Navigate to the desired page directory:
-
-   ```bash
-   cd WebPages/Page1
-   ```
-
-3. Open `index.html` in your preferred browser.
 
 ## 🛠️ Technologies Used
 
