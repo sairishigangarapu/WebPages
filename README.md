@@ -49,10 +49,6 @@ WebPages/
 
 Ongoing – New pages and features are regularly added.
 
-## 📄 License
-
-This open-source project is available under the [MIT License](LICENSE).
-
 ## 🤝 Connect with Me
 
 - GitHub: [sairishigangarapu](https://github.com/sairishigangarapu)
