@@ -1,8 +1,16 @@
-:root{
-  background-color: #000000e2;
+/* Root Variables - PES University Theme */
+:root {
+  --pes-dark: #1A1A1A;
+  --pes-medium: #2D2D2D;
+  --pes-light: #404040;
+  --pes-orange: #FF6B00;
+  --pes-orange-light: #FF8C40;
+  --pes-white: #FFFFFF;
+  --pes-gray: #B3B3B3;
+  background-color: var(--pes-dark);
 }
 
-/* Create a main container layout */
+/* App Container */
 .app-container {
   display: flex;
   flex-direction: column;
@@ -12,76 +20,104 @@
   padding: 10px;
 }
 
-/* Updated Sidebar styles */
+/* Navbar Styles */
+.NavBar {
+  height: 60px;
+  width: calc(100% - 60px);
+  background-color: rgba(45, 45, 45, 0.9);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--pes-light);
+  color: var(--pes-white);
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 10px;
+  padding: 15px 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.NavBar.collapsed {
+  width: calc(95vw - 20px);
+  margin: 10px;
+}
+
+.navbar-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.navbar-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--pes-white);
+}
+
+/* Sidebar Styles */
 .SideBar {
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
-  height: calc(100vh - 100px); /* Adjust for navbar and padding */
+  height: calc(100vh - 100px);
   width: 27vw;
-  background-color: rgba(6, 6, 6, 0.848);
+  background-color: rgba(45, 45, 45, 0.9);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--pes-light);
   border-radius: 10px;
-  color: rgb(0, 179, 255);
+  color: var(--pes-gray);
   transition: all 0.3s ease;
   overflow-y: auto;
   overflow-x: hidden;
-}
-
-.sidebar-content {
-  width: 100%;
-  padding: 15px 10px; /* Reduce padding on the sides */
-  justify-content: center;
 }
 
 .SideBar.collapsed {
   width: 10vw;
 }
 
-/* Add scrollbar styling */
-.SideBar::-webkit-scrollbar {
-  width: 8px;
-}
-
-.SideBar::-webkit-scrollbar-track {
-  background: rgba(6, 6, 6, 0.5);
-  border-radius: 4px;
-}
-
-.SideBar::-webkit-scrollbar-thumb {
-  background: rgb(0, 179, 255, 0.5);
-  border-radius: 4px;
-}
-
-.collapsed .heading h1 {
+.sidebar-content {
+  width: 100%;
+  padding: 15px 10px;
   justify-content: center;
-  padding: 0;
 }
 
-.collapsed .img {
-  margin: 5px;
-  transform: rotate(180deg);
-}
-
-.heading{
-  text-align: center;
-  padding: 0 5px; /* Reduce padding in heading */
-  width: 100%;    /* Ensure heading takes full width */
-}
-
-h1 {
-  margin: 10px;
-  padding: 0;
-  text-align: left;
+/* Content Wrapper and Content */
+.content-wrapper {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: all 0.3s ease;
+  flex: 1;
+  gap: 20px;
+  min-height: 0;
+  padding: 0 10px;
+  height: calc(100vh - 80px);
 }
 
-.btn-with-img{
-  background-color: rgba(6, 6, 6, 0.848);
-  color: aliceblue;
-  padding: 10px 5px; /* Reduce padding on sides */
-  border: none; /* Remove border */
+.content {
+  flex: 1;
+  background-color: rgba(45, 45, 45, 0.9);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--pes-light);
+  border-radius: 10px;
+  padding: 20px;
+  color: var(--pes-white);
+  font-family: Arial, Helvetica, sans-serif;
+  transition: all 0.3s ease;
+  overflow-y: auto;
+  height: calc(100vh - 100px);
+  position: relative;
+  z-index: 1;
+}
+
+.content.collapsed {
+  margin-left: 0;
+}
+
+/* Buttons */
+.btn-with-img {
+  background-color: var(--pes-medium);
+  color: var(--pes-white);
+  padding: 10px 5px;
+  border: none;
   border-radius: 8px;
   width: 100%;
   font-weight: bold;
@@ -90,242 +126,74 @@ h1 {
   display: flex;
   align-items: center;
   gap: 10px;
-  justify-content: flex-start; /* Align button content to the left */
-}
-
-.btn-with-img:hover{
-  background-color: rgba(138, 70, 2, 0.187);
-  cursor: pointer;
-}
-
-hr {
-  width: 100%;
-  margin: 15px 0;
-  border: none;
-  height: 1px;
-  background-color: #e8e8e8;
-  opacity: 0.2;
+  justify-content: flex-start;
   transition: all 0.3s ease;
 }
 
-.collapsed hr {
-  width: 80%;
-  margin: 15px auto; /* Centers the hr */
-  margin-inline: auto; /* Additional centering for better cross-browser support */
+.btn-with-img:hover {
+  background-color: var(--pes-orange-light);
+  box-shadow: 0 4px 12px rgba(255, 107, 0, 0.3);
 }
 
-.button-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centers children in collapsed state */
-  width: 100%;
-}
-
-.button-container hr {
-  width: 100%;
-}
-
-.collapsed .button-container hr {
-  width: 80%;
-}
-
-.btn-with-img img {
-  width: 24px;
-  height: 24px;
-  object-fit: cover;
-}
-
-.btn-with-img span {
-  flex: 1;
-}
-
-.img{
-  width: 24px;
-  height: 24px;
-  object-fit: cover;
-  margin-left: auto; /* Pushes image to the right */
-  text-align: end;
-  order:2;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.collapsed .img {
-  transform: rotate(180deg);
-}
-
-/* Update the navbar styles */
-.NavBar{
-  height: 60px; 
-  width: calc(100% - 20px); 
-  background-color: rgba(6, 6, 6, 0.848);
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 10px;
-  padding: 15px 20px;  /* Increase right padding to accommodate the button */
-  border-radius: 10px;  
-  display: flex;  
-  align-items: center;  
-  justify-content: flex-start; /* Change from space-between to flex-start */
-  transition: all 0.3s ease; 
-  position: relative; /* Add this to help with absolute positioning */
-}
-
-.NavBar.collapsed{
-  width: calc(95vw - 20px);
-  margin: 10px 10px 10px 10px; 
-}
-.btn-with-img1{
-  background-color: rgba(6, 6, 6, 0.848);
-  color: aliceblue;
-  border-radius: 20px;
-  border: 1.5px solid rgb(255, 162, 0); /* Modified border properties */
-  padding: 10px 10px;
-  font-weight: bold;
-  margin: 15px 100px; /* Changed margin to only top and bottom */
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.btn-with-img1:hover{
-  background-color: rgba(138, 70, 2, 0.187);
-  cursor: pointer;
-}
-
-.btn-with-img2{
-  background-color: rgba(6, 6, 6, 0.848);
-  color: aliceblue;
-  border-radius: 50%;  /* Make it perfectly circular */
-  border: 1.5px solid rgb(255, 162, 0);
-  padding: 8px;  /* Reduce padding to make it more compact */
-  width: 40px;   /* Set fixed width */
-  height: 40px;  /* Set fixed height */
-  font-weight: bold;
-  margin: 0;     /* Remove margin */
-  display: flex;
-  align-items: center;
-  justify-content: center;  /* Center the content */
-  margin-right: 10px;
-  margin-left: auto;  /* Push to the end of navbar */
-  position: absolute; /* Position absolutely */
-  right: 20px; /* Adjust this value */
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 100; /* Ensure button stays above other elements */
-}
-
-.btn-with-img2 img {
-  width: 20px;    /* Adjust icon size */
-  height: 20px;
-  object-fit: cover;
-}
-
-/* Remove any text inside the button in your HTML */
-.btn-with-img2 span {
-  display: none;
-}
-.btn-with-img2:hover{
-  background-color: rgba(138, 70, 2, 0.187);
-  cursor: pointer;
-}
-
-/* Create a content wrapper to hold sidebar and main content */
-.content-wrapper {
-  display: flex;
-  flex: 1;
-  gap: 10px;
-  min-height: 0; /* Important for proper scrolling */
-  gap: 20px;
-  padding: 0 10px;
-  height: calc(100vh - 80px);
-}
-
-.Content{
-  display: flex;
-  flex: 1;
-  margin:10px;
-  height: calc(100vh - 60px);
-  padding: 20px;
-  background-color: rgba(6, 6, 6, 0.848);
-  border-radius: 10px;
-  overflow-y: auto; /* Enable scrolling if content is too long */
-}
-
-/* Add this class to handle content when sidebar is collapsed */
-.Content.collapsed {
-  margin-left: calc(5vw + 20px); /* Adjust margin when sidebar is collapsed */
-  width: calc(95vw - 40px);
-}
-
-/* Remove the old .content styles and update with these new ones */
-.content {
-    flex: 1;
-    background-color: rgba(6, 6, 6, 0.848);
-    border-radius: 10px;
-    padding: 20px;
-    color: aliceblue;
-    font-family: Arial, Helvetica, sans-serif;
-    transition: all 0.3s ease;
-    overflow-y: auto;
-    height: calc(100vh - 100px);
-}
-
-/* Content scrollbar styling */
-.content::-webkit-scrollbar {
-  width: 8px;
-}
-
-.content::-webkit-scrollbar-track {
-  background: rgba(6, 6, 6, 0.5);
-  border-radius: 4px;
-}
-
-.content::-webkit-scrollbar-thumb {
-  background: rgb(0, 179, 255, 0.5);
-  border-radius: 4px;
-}
-
-.content.collapsed {
-    margin-left: 0; /* Remove margin since we're using gap */
-}
-
-.btn-with-img {
-  width: 100%;
-  transition: all 0.3s ease;
-}
-
-.collapsed .btn-with-img {
-  width: auto;
+.SideBar.collapsed .btn-with-img {
   padding: 10px;
-  justify-content: center; /* Center the image */
+  justify-content: center;
+  width: 100%;
 }
 
-.collapsed .btn-with-img img {
-  margin: 0 auto; /* Center the image within the button */
-}
-
-.collapsed .btn-with-img span {
+.SideBar.collapsed .btn-with-img span {
   display: none;
 }
 
-/* Update button container for collapsed state */
-.collapsed .button-container {
-  align-items: center;
+.SideBar.collapsed .btn-with-img img {
+  margin: 0;
 }
 
-.collapsed .button-container .btn-with-img {
-  display: flex;
-  justify-content: center;
-  width: 100%; /* Allow the button to take full width */
-}
-
-/* Updated heading styles */
-.heading h1, .heading h2 {
-  margin: 15px 5px; /* Reduce margin on sides */
+.btn-with-img1 {
+  background-color: var(--pes-medium);
+  color: var(--pes-white);
+  border-radius: 20px;
+  border: 2px solid var(--pes-orange);
+  padding: 10px;
+  font-weight: bold;
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* Align to the left */
   gap: 10px;
+}
+
+.btn-with-img1:hover {
+  background-color: var(--pes-orange-light);
+  box-shadow: 0 4px 12px rgba(255, 107, 0, 0.3);
+}
+
+.btn-with-img2 {
+  background-color: var(--pes-medium);
+  color: var(--pes-white);
+  border-radius: 50%;
+  border: 2px solid var(--pes-orange);
+  padding: 8px;
+  width: 40px;
+  height: 40px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.btn-with-img2:hover {
+  background-color: var(--pes-orange-light);
+  box-shadow: 0 4px 12px rgba(255, 107, 0, 0.3);
+}
+
+/* Headings */
+.heading h1, .heading h2 {
+  margin: 15px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  color: var(--pes-white);
 }
 
 .collapsed .heading h1, .collapsed .heading h2 {
@@ -336,35 +204,87 @@ hr {
   display: none;
 }
 
-/* Add these new styles */
+/* Images */
+.btn-with-img img, .img {
+  width: 24px;
+  height: 24px;
+  object-fit: cover;
+}
+
+.btn-with-img2 img {
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+}
+
+/* Scrollbars */
+.SideBar::-webkit-scrollbar,
+.content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.SideBar::-webkit-scrollbar-track,
+.content::-webkit-scrollbar-track {
+  background: var(--pes-medium);
+  border-radius: 4px;
+}
+
+.SideBar::-webkit-scrollbar-thumb,
+.content::-webkit-scrollbar-thumb {
+  background: var(--pes-orange);
+  border-radius: 4px;
+}
+
+/* HR */
+hr {
+  width: 100%;
+  margin: 15px 0;
+  border: none;
+  height: 1px;
+  background-color: var(--pes-gray);
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.collapsed hr {
+  width: 80%;
+  margin: 15px auto;
+}
+
+/* Dropdown Menu */
 .menu-container {
   position: relative;
 }
 
-/* Add hover functionality */
-.menu-container:hover .dropdown-menu,
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: var(--pes-medium);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  padding: 8px;
+  min-width: 200px;
+  box-shadow: 0 4px 15px rgba(255, 107, 0, 0.4);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(5px);
+  transition: all 0.2s ease;
+  border: 1px solid var(--pes-light);
+}
+
 .dropdown-menu.show {
-  display: block;
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
 
-.dropdown-menu {
-  position: absolute;
-  top: calc(100% + 5px);
-  right: 20px;
-  background-color: rgba(6, 6, 6, 0.95);
-  border-radius: 8px;
-  padding: 8px;
-  min-width: 200px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  z-index: 1000;
-  /* Add transition effects */
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-10px);
-  transition: all 0.2s ease;
+.menu-container:hover .dropdown-menu,
+.dropdown-menu.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 .dropdown-menu button {
@@ -373,7 +293,7 @@ hr {
   text-align: left;
   background: none;
   border: none;
-  color: aliceblue;
+  color: var(--pes-white);
   font-size: 14px;
   cursor: pointer;
   border-radius: 4px;
@@ -381,68 +301,258 @@ hr {
 }
 
 .dropdown-menu button:hover {
-  background-color: rgba(138, 70, 2, 0.187);
+  background-color: var(--pes-orange-light);
+  box-shadow: 0 2px 8px rgba(255, 107, 0, 0.2);
 }
-/*ai generated pls learn */
+
+/* Carousel */
 .carousel {
-    position: relative;
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .carousel-image {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
 .carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 1rem;
-    cursor: pointer;
-    font-size: 1.5rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: var(--pes-white);
+  border: none;
+  padding: 1rem;
+  cursor: pointer;
+  font-size: 1.5rem;
 }
 
 .carousel-btn:hover {
-    background: rgba(0, 0, 0, 0.8);
+  background: var(--pes-orange);
+  box-shadow: 0 4px 8px rgba(255, 107, 0, 0.4);
 }
 
 .prev {
-    left: 10px;
+  left: 10px;
 }
 
 .next {
-    right: 10px;
+  right: 10px;
 }
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background-color: #000000;
+/* Announcements Section */
+.announcements {
+  margin-top: 20px;
 }
 
-.profile-container {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-    padding-right: 2rem;
+.announcements h2 {
+  font-size: 1.5rem;
+  color: var(--pes-orange);
+  margin-bottom: 15px;
 }
 
-.profile-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-left: 1rem;
-    cursor: pointer;
+.announcements-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.announcement-card {
+  display: flex;
+  align-items: center;
+  background-color: var(--pes-medium);
+  border: 1px solid var(--pes-light);
+  border-radius: 8px;
+  padding: 10px;
+  transition: all 0.3s ease;
+}
+
+.announcement-card:hover {
+  background-color: var(--pes-orange-light);
+  box-shadow: 0 4px 12px rgba(255, 107, 0, 0.3);
+}
+
+.announcement-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-right: 15px;
+}
+
+.announcement-text {
+  flex: 1;
+}
+
+.announcement-text h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--pes-white);
+  margin: 0;
+}
+
+.announcement-text p {
+  font-size: 0.9rem;
+  color: var(--pes-gray);
+  margin: 5px 0 0 0;
+}
+
+/* New Profile Page Styles */
+.profile-section {
+  margin-bottom: 30px;
+}
+
+.profile-section h2 {
+  color: var(--pes-orange);
+  font-size: 1.5rem;
+  margin: 15px 0;
+  border-bottom: 2px solid var(--pes-orange-light);
+  padding-bottom: 5px;
+}
+
+.profile-section .section-content {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  background-color: var(--pes-medium);
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid var(--pes-light);
+  transition: all 0.3s ease;
+}
+
+.profile-image-container {
+  flex-shrink: 0;
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid var(--pes-orange);
+}
+
+.details-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.detail-item .label {
+  color: var(--pes-gray);
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.detail-item .value {
+  color: var(--pes-white);
+  font-size: 1rem;
+}
+
+.detail-item input {
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid var(--pes-orange);
+  background-color: var(--pes-dark);
+  color: var(--pes-white);
+  font-size: 1rem;
+  width: 100%;
+}
+
+.edit-button {
+  background-color: var(--pes-orange);
+  color: var(--pes-white);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+}
+
+.edit-button:hover {
+  background-color: var(--pes-orange-light);
+  box-shadow: 0 4px 12px rgba(255, 107, 0, 0.3);
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  background-color: var(--pes-medium);
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid var(--pes-light);
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.parent-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  background-color: var(--pes-medium);
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid var(--pes-light);
+}
+
+.parent-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.parent-column h3 {
+  color: var(--pes-orange-light);
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.address-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  background-color: var(--pes-medium);
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid var(--pes-light);
+}
+
+.address-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.address-column h3 {
+  color: var(--pes-orange-light);
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.address-column p {
+  color: var(--pes-white);
+  font-size: 1rem;
+  line-height: 1.5;
 }

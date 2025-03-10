@@ -1,16 +1,14 @@
-import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function SideBar({ isCollapsed, setIsCollapsed }) {
-  const toggleSidebar = () => {
-    setIsCollapsed(!isCollapsed);
-  };
+  const toggleSidebar = () => setIsCollapsed(!isCollapsed);
 
   return (
     <div className={`SideBar ${isCollapsed ? 'collapsed' : ''}`}>
       <div className="sidebar-content">
         <div className="heading">
           <h1>
-            {!isCollapsed && <span>Wassup</span>}
+            {!isCollapsed && <span>Welcome</span>}
             <img 
               src="/assets/logo.png" 
               className="img" 
@@ -19,38 +17,32 @@ function SideBar({ isCollapsed, setIsCollapsed }) {
             />
           </h1>
           <hr />
-          <h2>
-            {!isCollapsed && <span>Important</span>}
-          </h2>
+          <h2>{!isCollapsed && <span>Important</span>}</h2>
           <div className="button-container">
-
-          <button className="btn-with-img">
-            <img src="/assets/logo.png" alt="icon" />
-            {!isCollapsed && <span>Announcements</span>}
-          </button>
+            <Link to="/" className="btn-with-img">
+              <img src="/assets/logo.png" alt="icon" />
+              {!isCollapsed && <span>Home</span>} {/* Changed to "Home" */}
+            </Link>
           </div>
           <hr />
-          <h2>
-            {!isCollapsed && <span>Account</span>}
-          </h2>
+          <h2>{!isCollapsed && <span>Account</span>}</h2>
           <div className="button-container">
-            <button className="btn-with-img">
+            <Link to="/profile" className="btn-with-img">
               <img src="/assets/logo.png" alt="icon" />
               {!isCollapsed && <span>Profile</span>}
-            </button>
-            <button className="btn-with-img">
+            </Link>
+            <Link to="/timetable" className="btn-with-img">
               <img src="/assets/logo.png" alt="icon" />
               {!isCollapsed && <span>Time Table</span>}
-            </button>
-            <button className="btn-with-img">
+            </Link>
+            <Link to="/mycourses" className="btn-with-img">
               <img src="/assets/logo.png" alt="icon" />
               {!isCollapsed && <span>My Courses</span>}
-            </button>
-            <button className="btn-with-img">
+            </Link>
+            <Link to="/projects" className="btn-with-img">
               <img src="/assets/logo.png" alt="icon" />
               {!isCollapsed && <span>Projects</span>}
-            </button>
-            <hr />
+            </Link>
           </div>
         </div>
       </div>
