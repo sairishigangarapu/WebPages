@@ -21,7 +21,7 @@ function SideBar({ isCollapsed, setIsCollapsed }) {
           <div className="button-container">
             <Link to="/" className="btn-with-img">
               <img src="/assets/logo.png" alt="icon" />
-              {!isCollapsed && <span>Home</span>} {/* Changed to "Home" */}
+              {!isCollapsed && <span>Home</span>}
             </Link>
           </div>
           <hr />
@@ -42,6 +42,14 @@ function SideBar({ isCollapsed, setIsCollapsed }) {
             <Link to="/projects" className="btn-with-img">
               <img src="/assets/logo.png" alt="icon" />
               {!isCollapsed && <span>Projects</span>}
+            </Link>
+            <Link to="/exams" className="btn-with-img">
+              <img src="/assets/logo.png" alt="icon" />
+              {!isCollapsed && <span>Exams</span>}
+            </Link>
+            <Link to="/calendar" className="btn-with-img"> {/* Add this link */}
+              <img src="/assets/logo.png" alt="icon" />
+              {!isCollapsed && <span>Calendar</span>}
             </Link>
           </div>
         </div>
