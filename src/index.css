@@ -1329,3 +1329,12 @@ hr {
   color: white;
   line-height: 1.5;
 }
+.edit-button, .cancel-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.edit-button i, .cancel-button i {
+  font-size: 14px;
+}
