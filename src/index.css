@@ -1,5 +1,6 @@
 /* Root Variables - PES University Theme */
 :root {
+<<<<<<< HEAD
   --pes-dark: #1A1A1A;          /* Deep black for background */
   --pes-medium: #2D2D2D;        /* Medium gray for panels */
   --pes-light: #404040;         /* Light gray for borders */
@@ -9,6 +10,16 @@
   --pes-gray: #B3B3B3;          /* Gray for secondary text */
   background-color: var(--pes-dark);
   font-family: 'Roboto', Arial, sans-serif; /* Modern, clean font */
+=======
+  --pes-dark: #1A1A1A;
+  --pes-medium: #2D2D2D;
+  --pes-light: #404040;
+  --pes-orange: #FF6B00;
+  --pes-orange-light: #FF8C40;
+  --pes-white: #FFFFFF;
+  --pes-gray: #B3B3B3;
+  background-color: var(--pes-dark);
+>>>>>>> 367b8aa8cbcd10ffef47a59aa28b3793e6b47461
 }
 
 /* App Container */
@@ -25,8 +36,12 @@
 .NavBar {
   height: 60px;
   width: calc(100% - 60px);
+<<<<<<< HEAD
   background-color: var(--pes-dark);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+=======
+  background-color: rgba(45, 45, 45, 0.9);
+>>>>>>> 367b8aa8cbcd10ffef47a59aa28b3793e6b47461
   backdrop-filter: blur(10px);
   border: 1px solid var(--pes-light);
   color: var(--pes-white);
@@ -55,7 +70,11 @@
 .navbar-title {
   font-size: 1.5rem;
   font-weight: bold;
+<<<<<<< HEAD
   color: var(--pes-orange);
+=======
+  color: var(--pes-white);
+>>>>>>> 367b8aa8cbcd10ffef47a59aa28b3793e6b47461
 }
 
 /* Sidebar Styles */
@@ -63,7 +82,11 @@
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
   height: calc(100vh - 100px);
+<<<<<<< HEAD
   width: 250px;
+=======
+  width: 20vw;  /* Changed from 27vw to 20vw */
+>>>>>>> 367b8aa8cbcd10ffef47a59aa28b3793e6b47461
   background-color: rgba(45, 45, 45, 0.9);
   backdrop-filter: blur(10px);
   border: 1px solid var(--pes-light);
@@ -73,6 +96,10 @@
   overflow-y: auto;
   overflow-x: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.SideBar.collapsed {
+  width: 8vw;  /* Changed from 10vw to 5vw */
 }
 
 .SideBar.collapsed {
@@ -110,7 +137,11 @@
   overflow-y: auto;
   height: calc(100vh - 100px);
   position: relative;
+<<<<<<< HEAD
   z-index: -1;
+=======
+  z-index: 1;
+>>>>>>> 367b8aa8cbcd10ffef47a59aa28b3793e6b47461
 }
 
 .content.collapsed {
@@ -139,7 +170,10 @@
 .btn-with-img:hover {
   background-color: var(--pes-orange-light);
   box-shadow: 0 4px 12px rgba(255, 107, 0, 0.3);
+<<<<<<< HEAD
   transform: scale(1.05);
+=======
+>>>>>>> 367b8aa8cbcd10ffef47a59aa28b3793e6b47461
 }
 
 .SideBar.collapsed .btn-with-img {
@@ -825,7 +859,11 @@ hr {
 }
 
 .exam-detail-item .label {
+<<<<<<< HEAD
   color: var (--pes-gray);
+=======
+  color: var(--pes-gray);
+>>>>>>> 367b8aa8cbcd10ffef47a59aa28b3793e6b47461
   font-size: 1rem;
   font-weight: bold;
   text-transform: uppercase;
@@ -1099,6 +1137,7 @@ hr {
   background: var(--pes-orange);
   box-shadow: 0 4px 8px rgba(255, 107, 0, 0.4);
 }
+<<<<<<< HEAD
 
 /* Add new responsive styles */
 @media (max-width: 768px) {
@@ -1338,3 +1377,5 @@ hr {
 .edit-button i, .cancel-button i {
   font-size: 14px;
 }
+=======
+>>>>>>> 367b8aa8cbcd10ffef47a59aa28b3793e6b47461
