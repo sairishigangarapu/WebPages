@@ -1,12 +1,11 @@
-<<<<<<< HEAD
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useState, useEffect } from 'react'; // Keep imports from HEAD
+import axios from 'axios'; // Keep imports from HEAD
 
 function ProfilePage({ isCollapsed }) {
   const [isEditing, setIsEditing] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState('');
-  const [profileData, setProfileData] = useState({
+  const [isLoading, setIsLoading] = useState(true); // Keep state from HEAD
+  const [error, setError] = useState(''); // Keep state from HEAD
+  const [profileData, setProfileData] = useState({ // Keep state from HEAD
     name: "",
     branch: "",
     email: "",
@@ -21,10 +20,10 @@ function ProfilePage({ isCollapsed }) {
   });
 
   // Create a temporary state for editing
-  const [editData, setEditData] = useState({...profileData});
+  const [editData, setEditData] = useState({...profileData}); // Keep state from HEAD
 
   // Fetch user profile data
-  useEffect(() => {
+  useEffect(() => { // Keep useEffect from HEAD
     const fetchProfile = async () => {
       try {
         const token = localStorage.getItem('token');
@@ -52,14 +51,14 @@ function ProfilePage({ isCollapsed }) {
     fetchProfile();
   }, []);
 
-  const handleChange = (field, value) => {
+  const handleChange = (field, value) => { // Keep handleChange from HEAD
     setEditData({
       ...editData,
       [field]: value
     });
   };
 
-  const toggleEdit = async () => {
+  const toggleEdit = async () => { // Keep toggleEdit from HEAD
     if (isEditing) {
       // Save changes
       try {
@@ -85,15 +84,15 @@ function ProfilePage({ isCollapsed }) {
     setIsEditing(!isEditing);
   };
 
-  if (isLoading) {
+  if (isLoading) { // Keep loading state check from HEAD
     return <div className="loading">Loading profile data...</div>;
   }
 
-  if (error) {
+  if (error) { // Keep error state check from HEAD
     return <div className="error">{error}</div>;
   }
 
-  // Rest of the component remains the same
+  // Rest of the component remains the same from HEAD
   return (
     <div className={`content ${isCollapsed ? 'collapsed' : ''}`}>
       <h1 className="profile-section">My Profile</h1>
@@ -117,8 +116,17 @@ function ProfilePage({ isCollapsed }) {
               onChange={(value) => handleChange('name', value)} 
               editValue={editData.name}
             />
-            {/* Other DetailItem components remain the same */}
-            {/* ... */}
+            {/* Assume other DetailItem components are here as in HEAD */}
+             <DetailItem label="Branch" value={profileData.branch} isEditing={isEditing} onChange={(value) => handleChange('branch', value)} editValue={editData.branch} />
+             <DetailItem label="Email" value={profileData.email} isEditing={isEditing} onChange={(value) => handleChange('email', value)} editValue={editData.email} />
+             <DetailItem label="PESU ID" value={profileData.pesuId} isEditing={isEditing} onChange={(value) => handleChange('pesuId', value)} editValue={editData.pesuId} />
+             <DetailItem label="Semester" value={profileData.semester} isEditing={isEditing} onChange={(value) => handleChange('semester', value)} editValue={editData.semester} />
+             <DetailItem label="Contact No" value={profileData.contactNo} isEditing={isEditing} onChange={(value) => handleChange('contactNo', value)} editValue={editData.contactNo} />
+             <DetailItem label="SRN" value={profileData.srn} isEditing={isEditing} onChange={(value) => handleChange('srn', value)} editValue={editData.srn} />
+             <DetailItem label="Section" value={profileData.section} isEditing={isEditing} onChange={(value) => handleChange('section', value)} editValue={editData.section} />
+             <DetailItem label="Aadhar No" value={profileData.aadharNo} isEditing={isEditing} onChange={(value) => handleChange('aadharNo', value)} editValue={editData.aadharNo} />
+             <DetailItem label="Program" value={profileData.program} isEditing={isEditing} onChange={(value) => handleChange('program', value)} editValue={editData.program} />
+             <DetailItem label="Aadhar Name" value={profileData.aadharName} isEditing={isEditing} onChange={(value) => handleChange('aadharName', value)} editValue={editData.aadharName} />
           </div>
           <div className="button-container">
             <button onClick={toggleEdit} className="edit-button">
@@ -128,7 +136,7 @@ function ProfilePage({ isCollapsed }) {
             {isEditing && (
               <button 
                 onClick={() => {
-                  setEditData({...profileData});
+                  setEditData({...profileData}); // Reset edit data on cancel
                   setIsEditing(false);
                 }} 
                 className="cancel-button"
@@ -140,13 +148,48 @@ function ProfilePage({ isCollapsed }) {
         </div>
       </section>
 
-      {/* Rest of the sections remain the same */}
-      {/* ... */}
+      {/* Assume rest of the sections are here as in HEAD */}
+       {/* Academic Details Section */}
+      <section className="profile-section">
+        <h2>Academic Details</h2>
+        <div className="section-content">
+          <div className="info-grid">
+            <InfoItem label="Program" value={profileData.program} />
+            <InfoItem label="Branch" value={profileData.branch} />
+            <InfoItem label="Semester" value={profileData.semester} />
+            <InfoItem label="Section" value={profileData.section} />
+            <InfoItem label="SRN" value={profileData.srn} />
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Information Section */}
+      <section className="profile-section">
+        <h2>Contact Information</h2>
+        <div className="section-content">
+          <div className="info-grid">
+            <InfoItem label="Email" value={profileData.email} />
+            <InfoItem label="Contact No" value={profileData.contactNo} />
+          </div>
+        </div>
+      </section>
+
+      {/* Identification Details Section */}
+      <section className="profile-section">
+        <h2>Identification Details</h2>
+        <div className="section-content">
+          <div className="info-grid">
+            <InfoItem label="PESU ID" value={profileData.pesuId} />
+            <InfoItem label="Aadhar No" value={profileData.aadharNo} />
+            <InfoItem label="Name as per Aadhar" value={profileData.aadharName} />
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
 
-// Component for editable detail items
+// Component for editable detail items (Keep from HEAD)
 function DetailItem({ label, value, isEditing, onChange, editValue }) {
   return (
     <div className="detail-item">
@@ -165,7 +208,7 @@ function DetailItem({ label, value, isEditing, onChange, editValue }) {
   );
 }
 
-// Component for non-editable info items
+// Component for non-editable info items (Keep from HEAD)
 function InfoItem({ label, value }) {
   return (
     <div className="info-item">
@@ -175,141 +218,4 @@ function InfoItem({ label, value }) {
   );
 }
 
-=======
-import { useState } from 'react';
-
-function ProfilePage({ isCollapsed }) {
-  const [isEditing, setIsEditing] = useState(false);
-
-  const toggleEdit = () => setIsEditing(!isEditing);
-
-  return (
-    <div className={`content ${isCollapsed ? 'collapsed' : ''}`}>
-      <h1 className="profile-section">My Profile</h1>
-
-      {/* Personal Details Section */}
-      <section className="profile-section">
-        <h2>Personal Details</h2>
-        <div className="section-content">
-          <div className="profile-image-container">
-            <img
-              src="https://via.placeholder.com/150?text=Profile"
-              alt="Profile"
-              className="profile-image"
-            />
-          </div>
-          <div className="details-grid">
-            <DetailItem label="Name" value="[Student Name]" isEditing={isEditing} />
-            <DetailItem label="Branch" value="[Branch Name]" isEditing={isEditing} />
-            <DetailItem label="Email ID" value="[Email]" isEditing={isEditing} />
-            <DetailItem label="PESU ID" value="[PESU ID]" isEditing={isEditing} />
-            <DetailItem label="Semester" value="[Semester]" isEditing={isEditing} />
-            <DetailItem label="Contact No" value="[Contact Number]" isEditing={isEditing} />
-            <DetailItem label="SRN" value="[SRN]" isEditing={isEditing} />
-            <DetailItem label="Section" value="[Section]" isEditing={isEditing} />
-            <DetailItem label="Aadhar No" value="[Aadhar Number]" isEditing={isEditing} />
-            <DetailItem label="Program" value="[Program]" isEditing={isEditing} />
-            <DetailItem label="Name as in Aadhar" value="[Aadhar Name]" isEditing={isEditing} />
-          </div>
-          <button onClick={toggleEdit} className="edit-button">
-            {isEditing ? 'Save' : 'Edit'}
-          </button>
-        </div>
-      </section>
-
-      {/* Other Information Section */}
-      <section className="profile-section">
-        <h2>Other Information</h2>
-        <div className="info-grid">
-          <InfoItem label="SSLC Marks" value="[SSLC Marks]" />
-          <InfoItem label="PUC Marks" value="[PUC Marks]" />
-          <InfoItem label="Date of Birth" value="[DOB]" />
-          <InfoItem label="Blood Group" value="[Blood Group]" />
-        </div>
-      </section>
-
-      {/* Qualifying Examination Section */}
-      <section className="profile-section">
-        <h2>Qualifying Examination</h2>
-        <div className="info-grid">
-          <InfoItem label="Exam" value="[Exam Name]" />
-          <InfoItem label="Rank" value="[Rank]" />
-          <InfoItem label="Score" value="[Score]" />
-        </div>
-      </section>
-
-      {/* Parent Details Section */}
-      <section className="profile-section">
-        <h2>Parent Details</h2>
-        <div className="parent-grid">
-          <div className="parent-column">
-            <h3>Father</h3>
-            <InfoItem label="Father Name" value="[Father Name]" />
-            <InfoItem label="Mobile" value="[Father Mobile]" />
-            <InfoItem label="Email" value="[Father Email]" />
-            <InfoItem label="Occupation" value="[Father Occupation]" />
-            <InfoItem label="Qualification" value="[Father Qualification]" />
-            <InfoItem label="Designation" value="[Father Designation]" />
-            <InfoItem label="Employer" value="[Father Employer]" />
-          </div>
-          <div className="parent-column">
-            <h3>Mother</h3>
-            <InfoItem label="Mother Name" value="[Mother Name]" />
-            <InfoItem label="Mobile" value="[Mother Mobile]" />
-            <InfoItem label="Email" value="[Mother Email]" />
-            <InfoItem label="Occupation" value="[Mother Occupation]" />
-            <InfoItem label="Qualification" value="[Mother Qualification]" />
-            <InfoItem label="Designation" value="[Mother Designation]" />
-            <InfoItem label="Employer" value = "[Mother Employer]" />
-          </div>
-        </div>
-      </section>
-
-      {/* Address Section */}
-      <section className="profile-section">
-        <h2>Address</h2>
-        <div className="address-grid">
-          <div className="address-column">
-            <h3>Present Address</h3>
-            <p>[Present Address]</p>
-          </div>
-          <div className="address-column">
-            <h3>Permanent Address</h3>
-            <p>[Permanent Address]</p>
-          </div>
-        </div>
-      </section>
-    </div>
-  );
-}
-
-// Component for editable detail items
-function DetailItem({ label, value, isEditing }) {
-  return (
-    <div className="detail-item">
-      <span className="label">{label}</span>
-      {isEditing ? (
-        <input
-          type="text"
-          defaultValue={value}
-          onChange={(e) => console.log(`Editing ${label}: ${e.target.value}`)} // Placeholder for edit logic
-        />
-      ) : (
-        <span className="value">{value}</span>
-      )}
-    </div>
-  );
-}
-
-// Component for non-editable info items
-function InfoItem({ label, value }) {
-  return (
-    <div className="info-item">
-      <span className="label">{label}</span>
-      <span className="value">{value}</span>
-    </div>
-  );
-}
-
->>>>>>> 367b8aa8cbcd10ffef47a59aa28b3793e6b47461
-export default ProfilePage;
+export default ProfilePage; // Keep export from HEAD
